@@ -13,12 +13,12 @@
 ![Icon示例图](./image/icon.jpeg)
 
 **Icon样式代码**
-![代码1](./image/icon1.jpeg)
-![代码1](./image/icon2.jpeg)
-![代码1](./image/icon3.jpeg)
-![代码1](./image/icon4.jpeg)
-![代码1](./image/icon5.jpeg)
-![代码1](./image/icon6.jpeg)
+![样式代码1](./image/icon1.jpeg)
+![样式代码2](./image/icon2.jpeg)
+![样式代码3](./image/icon3.jpeg)
+![样式代码4](./image/icon4.jpeg)
+![样式代码5](./image/icon5.jpeg)
+![样式代码6](./image/icon6.jpeg)
 
 # Button 按钮
 
@@ -33,3 +33,17 @@
 **示例图**
 
 ![Button示例图](./image/button.jpeg)
+
+# Praise 好评
+
+**API**
+
+| 属性 | 说明 | 类型 | 默认值 |
+| - | - | - | - |
+| quantity | 选中的数量 | Number | 0 |
+| size | 图标的大小 | Number | 16 |
+| disabled | 禁用按钮 | Boolean | false |
+
+**示例图**
+
+![Praise示例图](./image/praise.jpeg)

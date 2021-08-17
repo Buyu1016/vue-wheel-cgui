@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'CgIcon',
   props: {
     // icon代码
     type: {
@@ -33,12 +34,13 @@ export default {
 <style scope>
 @font-face {
   font-family: 'iconfont';  /* Project id 2734257 */
-  src: url('//at.alicdn.com/t/font_2734257_76uqsjhdh23.woff2?t=1628572474197') format('woff2'),
-       url('//at.alicdn.com/t/font_2734257_76uqsjhdh23.woff?t=1628572474197') format('woff'),
-       url('//at.alicdn.com/t/font_2734257_76uqsjhdh23.ttf?t=1628572474197') format('truetype');
+  src: url('//at.alicdn.com/t/font_2734257_fwrgo4k13b.woff2?t=1629210987867') format('woff2'),
+       url('//at.alicdn.com/t/font_2734257_fwrgo4k13b.woff?t=1629210987867') format('woff'),
+       url('//at.alicdn.com/t/font_2734257_fwrgo4k13b.ttf?t=1629210987867') format('truetype');
 }
 .cg-icon {
     font-family: 'iconfont';
     padding: 5px 5px;
+    transition: color 0.3s;
 }
 </style>

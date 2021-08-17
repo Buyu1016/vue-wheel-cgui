@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  name: 'CgButton',
   props: {
     // 按钮类型
     type: {
@@ -43,6 +44,7 @@ export default {
 <style scope>
 .button-container{
     margin: 5px;
+    display: inline-block;
 }
 .cg-button {
     width: 100%;
