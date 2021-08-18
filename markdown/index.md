@@ -47,3 +47,15 @@
 **示例图**
 
 ![Praise示例图](./image/praise.jpeg)
+
+# Empty 空数据
+
+**API**
+
+| 属性 | 说明 | 类型 | 默认值 |
+| - | - | - | - |
+| title | 文字说明 | String | 'Not Data' |
+
+**示例图**
+
+![Empty示例图](./image/empty.jpeg)

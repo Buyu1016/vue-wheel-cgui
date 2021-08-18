@@ -1,25 +1,27 @@
 <template>
   <div id="app">
-    <CgPraise :quantity="num" :size="25" @handleChangeSelect="handleClick"/>
-    <CgPraise :quantity="num" :size="25" :disabled="true" @handleChangeSelect="handleClick"/>
+    <div class="box">
+      <CgEmpty />
+    </div>
+    <div class="box">
+      <CgEmpty title="无数据" />
+    </div>
   </div>
 </template>
 
 <script>
 
 export default {
-  data() {
-    return {
-      num: 3
-    }
-  },
-  methods: {
-    handleClick (i) {
-      console.log(i)
-    }
-  }
 }
 </script>
 
 <style>
+.box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-right: 10px;
+  display: inline-block;
+}
 </style>
