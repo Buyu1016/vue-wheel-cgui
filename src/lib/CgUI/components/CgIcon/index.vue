@@ -34,9 +34,9 @@ export default {
 <style scope>
 @font-face {
   font-family: 'iconfont';  /* Project id 2734257 */
-  src: url('//at.alicdn.com/t/font_2734257_ao94y1k8wz.woff2?t=1629294884934') format('woff2'),
-       url('//at.alicdn.com/t/font_2734257_ao94y1k8wz.woff?t=1629294884934') format('woff'),
-       url('//at.alicdn.com/t/font_2734257_ao94y1k8wz.ttf?t=1629294884934') format('truetype');
+  src: url('//at.alicdn.com/t/font_2734257_88jfawe1943.woff2?t=1629377462988') format('woff2'),
+       url('//at.alicdn.com/t/font_2734257_88jfawe1943.woff?t=1629377462988') format('woff'),
+       url('//at.alicdn.com/t/font_2734257_88jfawe1943.ttf?t=1629377462988') format('truetype');
 }
 .cg-icon {
     font-family: 'iconfont';

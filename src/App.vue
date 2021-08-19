@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <div class="box">
-      <CgEmpty />
-    </div>
-    <div class="box">
-      <CgEmpty title="无数据" />
-    </div>
+    <CgInput/>
+    <CgInput placeholder="请搜索商品" icon="&#xe7b1;" style="margin-top:10px;"/>
   </div>
 </template>
 
@@ -16,12 +12,7 @@ export default {
 </script>
 
 <style>
-.box {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  margin-right: 10px;
-  display: inline-block;
+#app {
+  width: 300px;
 }
 </style>
