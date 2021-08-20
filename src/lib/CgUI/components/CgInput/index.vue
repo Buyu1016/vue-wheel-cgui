@@ -32,6 +32,7 @@ export default {
     oInput.addEventListener('focus', () => {
       oLabel.style.display = 'none'
       oInput.classList.add("cg-input-active")
+      this.$emit('inputOpenShow')
     })
     oInput.addEventListener('blur', () => {
       if (oInput.value) {
@@ -40,6 +41,7 @@ export default {
         oLabel.style.display = 'inline-block'
       }
       oInput.className = 'cg-input'
+      this.$emit('inputCloseShow')
     })
   },
   methods: {}
