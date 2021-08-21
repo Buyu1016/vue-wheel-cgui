@@ -12,13 +12,7 @@
 
 ![Icon示例图](./image/icon.jpeg)
 
-**Icon样式代码**
-![样式代码1](./image/icon1.jpeg)
-![样式代码2](./image/icon2.jpeg)
-![样式代码3](./image/icon3.jpeg)
-![样式代码4](./image/icon4.jpeg)
-![样式代码5](./image/icon5.jpeg)
-![样式代码6](./image/icon6.jpeg)
+**Icon样式代码请前往: [CgUI图标库](www.codegorgeous.top)**
 
 # Button 按钮
 
@@ -56,6 +50,44 @@
 | - | - | - | - |
 | title | 文字说明 | String | 'Not Data' |
 
+
 **示例图**
 
 ![Empty示例图](./image/empty.jpeg)
+
+# Input 输入框
+
+**API**
+
+| 属性 | 说明 | 类型 | 默认值 |
+| - | - | - | - |
+| value.sync | 输入框绑定数据 | String | '' |
+
+**Events**
+
+| 事件名称 | 事件说明 | 回调参数 |
+| - | - | - | - |
+| inputOpenShow | 焦点聚焦输入框 | 无 |
+| inputCloseShow | 焦点移出输入框 | 无 |
+
+**示例图**
+
+![Input示例图](./image/Input.jpeg)
+
+# Select 下拉输入框
+
+**API**
+
+| 属性 | 说明 | 类型 | 默认值 |
+| - | - | - | - |
+| data | 下拉菜单数据 | Array | [] |
+
+**Events**
+
+| 事件名称 | 事件说明 | 回调参数 |
+| - | - | - | - |
+| selectValue | 选择下拉列表的数据 | 目标选中值 |
+
+**示例图**
+
+![Select](./image/Select.jpeg)

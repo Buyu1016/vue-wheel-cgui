@@ -1,10 +1,13 @@
 <template>
   <div class="cg-input-container">
-    <label ref="cgInputPlaceHolder" class="cg-input-placeholder">{{placeholder}}</label>
+    <label v-show="!value" ref="cgInputPlaceHolder" class="cg-input-placeholder">{{placeholder}}</label>
     <input
       type="text"
       ref="cgInput"
       class="cg-input"
+      v-model="data"
+      @focus="handleFocus"
+      @blur="handleBlur"
     >
     <CgIcon
       v-if="icon"
@@ -24,27 +27,43 @@ export default {
     },
     icon: {
       type: String
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
-  mounted() {
-    const oInput = this.$refs.cgInput
-    const oLabel = this.$refs.cgInputPlaceHolder
-    oInput.addEventListener('focus', () => {
+  data() {
+    return {
+      data: this.value
+    }
+  },
+  watch: {
+    'value'(newVal) {
+      this.data = newVal
+    },
+    'data'(newVal) {
+      this.$emit('update:value', newVal)
+    }
+  },
+  methods: {
+    handleFocus() {
+      const oInput = this.$refs.cgInput
+      const oLabel = this.$refs.cgInputPlaceHolder
       oLabel.style.display = 'none'
       oInput.classList.add("cg-input-active")
       this.$emit('inputOpenShow')
-    })
-    oInput.addEventListener('blur', () => {
-      if (oInput.value) {
-        console.log(oInput.value)
-      } else {
+    },
+    handleBlur() {
+      const oInput = this.$refs.cgInput
+      const oLabel = this.$refs.cgInputPlaceHolder
+      if (!oInput.value) {
         oLabel.style.display = 'inline-block'
       }
       oInput.className = 'cg-input'
       this.$emit('inputCloseShow')
-    })
-  },
-  methods: {}
+    }
+  }
 }
 </script>
 
@@ -70,6 +89,7 @@ export default {
   font-size: 16px;
   border: 1px solid #DCDFE6;
   outline: none;
+  color: #A1A1A1;
   box-sizing: border-box;
 }
 .cg-input-icon {
@@ -79,6 +99,7 @@ export default {
   transform: translateY(-50%);
 }
 .cg-input-active {
+  color: #515151;
   border-color: #A1A1A1;
 }
 </style>

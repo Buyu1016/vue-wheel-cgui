@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <!-- <CgInput/>
-    <CgInput placeholder="请搜索商品" icon="&#xe7b1;" style="margin-top:10px;"/> -->
-    <CgSelect :data="data"></CgSelect>
+    <CgInput :value.sync="v1" class="input"/>
+    <CgInput :value.sync="v2" placeholder="请输入框架关键词" icon="&#xe7b1;" class="input"/>
+    <CgInput :value.sync="v3" icon="&#xebc5;" class="input"/>
+    <!-- <CgSelect :data="data" @selectValue="handleValue"></CgSelect> -->
   </div>
 </template>
 
@@ -10,25 +11,14 @@
 export default {
   data() {
     return {
-      data: [{
-          id: 1,
-          text: 'Vue'
-        }, {
-          id: 2,
-          text: 'uniapp'
-        }, {
-          id: 3,
-          text: 'React'
-        }, {
-          id: 1,
-          text: 'Vue'
-        }, {
-          id: 2,
-          text: 'uniapp'
-        }, {
-          id: 3,
-          text: 'React'
-        }]
+      v1: '',
+      v2: '',
+      v3: 'Vue'
+    }
+  },
+  methods: {
+    handleValue(val) {
+      console.log('当前值:', val)
     }
   }
 }
@@ -37,6 +27,8 @@ export default {
 <style>
 #app {
   width: 300px;
-  height: 30px;
+}
+.input {
+  margin-top: 5px;
 }
 </style>
