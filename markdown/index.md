@@ -12,7 +12,7 @@
 
 ![Icon示例图](./image/icon.jpeg)
 
-**Icon样式代码请前往: [CgUI图标库](www.codegorgeous.top)**
+**Icon样式代码请前往: [CgUI图标库](http://icon.codegorgeous.top)**
 
 # Button 按钮
 
@@ -62,11 +62,15 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | - | - | - | - |
 | value.sync | 输入框绑定数据 | String | '' |
+| placeholder | 输入框默认显示 | String | '请输入内容' |
+| icon | 输入框图标 | String | '' |
+| disabled | 输入框是否禁用 | Boolean | false |
+
 
 **Events**
 
 | 事件名称 | 事件说明 | 回调参数 |
-| - | - | - | - |
+| - | - | - |
 | inputOpenShow | 焦点聚焦输入框 | 无 |
 | inputCloseShow | 焦点移出输入框 | 无 |
 
@@ -85,7 +89,7 @@
 **Events**
 
 | 事件名称 | 事件说明 | 回调参数 |
-| - | - | - | - |
+| - | - | - |
 | selectValue | 选择下拉列表的数据 | 目标选中值 |
 
 **示例图**

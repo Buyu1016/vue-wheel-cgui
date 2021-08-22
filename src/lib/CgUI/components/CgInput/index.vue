@@ -4,7 +4,10 @@
     <input
       type="text"
       ref="cgInput"
-      class="cg-input"
+      :class="{
+        'cg-input': true,
+        'cg-input-disabled': disabled
+        }"
       v-model="data"
       @focus="handleFocus"
       @blur="handleBlur"
@@ -23,7 +26,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: '请填写内容'
+      default: '请输入内容'
     },
     icon: {
       type: String
@@ -31,6 +34,10 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -91,6 +98,10 @@ export default {
   outline: none;
   color: #A1A1A1;
   box-sizing: border-box;
+}
+.cg-input-disabled {
+  background: #F1F1F1;
+  pointer-events: none;
 }
 .cg-input-icon {
   position: absolute;
