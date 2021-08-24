@@ -94,4 +94,20 @@
 
 **示例图**
 
-![Select](./image/Select.jpeg)
+![Select示例图](./image/Select.jpeg)
+
+# Image 图片
+
+**API**
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :-: | :-: | :-: | :-: |
+| url | img原生url | String | 无 |
+| alt | img原生alt | String | '' |
+| width | 图片宽度 | Number | 500 |
+| height | 图片高度 | Number | 300 |
+| radius | 图片圆角 | String | 0 |
+
+**示例图**
+
+![Image示例图](./image/Image.jpeg)
