@@ -1,14 +1,22 @@
 <template>
-    <img
-        :src="url"
-        :alt="alt"
-        class="cg-image-container"
-        :style="{
-            'width': width + 'px',
-            'height': height + 'px',
-            'border-radius': radius + 'px'
-        }"
-    >
+    <div class="cg-image-container">
+        <img
+            v-if="url"
+            :src="url"
+            :alt="alt"
+            :style="{
+                'width': width ? width : '100%',
+                'height': height ? height : '100%',
+                'border-radius': radius + 'px'
+            }"
+        >
+        <span
+            v-if="!url"
+            class="cg-image-notImage"
+        >
+            <CgIcon type="&#xeba2;" :size="100" color="#D1D1D1"/>
+        </span>
+    </div>
 </template>
 
 <script>
@@ -24,12 +32,10 @@ export default {
             default: ''
         },
         width: {
-            type: Number,
-            default: 500 
+            type: String
         },
         height: {
-            type: Number,
-            default: 300
+            type: String
         },
         radius: {
             type: Number,
@@ -40,4 +46,16 @@ export default {
 </script>
 
 <style scoped>
+.cg-image-container {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.cg-image-notImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

@@ -104,8 +104,8 @@
 | :-: | :-: | :-: | :-: |
 | url | img原生url | String | 无 |
 | alt | img原生alt | String | '' |
-| width | 图片宽度 | Number | 500 |
-| height | 图片高度 | Number | 300 |
+| width | 图片宽度 | String | 100% |
+| height | 图片高度 | String | 100% |
 | radius | 图片圆角 | String | 0 |
 
 **示例图**

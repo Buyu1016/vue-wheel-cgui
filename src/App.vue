@@ -2,7 +2,7 @@
   <div id="app">
     <CgCarousel>
       <CgCarouselItem v-for="item in url" :key="item.id">
-        <CgImage :url="item.url"/>
+        <CgImage style="width:500px;height:300px;" :url="item.url"/>
       </CgCarouselItem>
     </CgCarousel>
   </div>
@@ -24,6 +24,10 @@ export default {
         {
           id: '3',
           url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fv1cdn.imspm.com%2Fe%2Fcb67673f01ec4c42ba06bbf66507b260.jpeg&refer=http%3A%2F%2Fv1cdn.imspm.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632406374&t=40b95ce27980ec3c72fb3b6184ef75e3'
+        },
+        {
+          id: '4',
+          url: ''
         }
       ]
     }
