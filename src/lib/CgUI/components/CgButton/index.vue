@@ -1,8 +1,5 @@
 <template>
-  <span class="button-container" :style="{
-    'cursor': disabled ? 'not-allowed' : 'pointer'
-  }">
-      <button :class="{
+  <button :class="{
           'cg-button': true,
           'cg-button-primary': type === 'primary',
           'cg-button-dashed': type === 'dashed',
@@ -11,11 +8,13 @@
           'cg-button-blue-ghost': ghost,
           'cg-button-red-ghost': ghost && type === 'danger',
           'cg-button-disabled': disabled
-      }"
+        }"
+        :style="{
+          'cursor': disabled ? 'not-allowed' : 'pointer'
+        }"
       >
-        <slot></slot>
-      </button>
-  </span>
+      <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -47,8 +46,7 @@ export default {
     display: inline-block;
 }
 .cg-button {
-    width: 100%;
-    height: 100%;
+    margin: 5px;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
     padding: 10px 15px;

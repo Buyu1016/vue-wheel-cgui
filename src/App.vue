@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <CgCarousel>
+    <CgCarousel
+      :automatic="true"
+      initialIndexes="1"
+    >
       <CgCarouselItem v-for="item in url" :key="item.id">
         <CgImage style="width:500px;height:300px;" :url="item.url"/>
       </CgCarouselItem>
@@ -35,4 +38,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+#app {
+  width: 500px;
+  height: 300px;
+}
+</style>
