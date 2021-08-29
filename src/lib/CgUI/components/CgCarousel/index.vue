@@ -3,7 +3,6 @@
       <div class="cg-carousel-content">
         <slot></slot>
       </div>
-      <CgButton type="primary" @click="currentIndex++">点击</CgButton>
   </div>
 </template>
 
@@ -21,9 +20,16 @@ export default {
         type: Number,
         default: 3000
       },
+      // 走马灯/渐变
+      // carousel/opacity
+      playType: {
+        type: String,
+        default: 'carousel'
+      },
       // 初始显示第几张图片的索引
       initialIndexes: {
-        required: true
+        type: Number,
+        default: 0,
       },
       // 是否显示索引
       ifShowIndexes: {
@@ -51,8 +57,40 @@ export default {
     },
     data() {
       return {
-        currentIndex: this.initialIndexes
+        currentIndex: this.initialIndexes,
+        IntervalTimer: null,
+        // 轮播图总量
+        totalCarousel: 0
       }
+    },
+    created() {
+      if (this.automatic) {
+        this.IntervalTimer = setInterval(() => {
+          this.switchCarousel('next')
+        }, this.intervalTime)
+      }
+      this.totalCarousel = this.$slots.default.length
+    },
+    methods: {
+      switchCarousel(dir) {
+        if (dir === 'prev') {
+          this.currentIndex-=1
+          // 界限
+          if (this.currentIndex < 0) {
+            this.currentIndex = this.$slots.default[this.totalCarousel-1].key
+          }
+        } else if (dir === 'next') {
+          this.currentIndex+=1
+          // 界限  需要看现在的位置是否已经到达最后一张轮播图则需要重置到最先的位置
+          if (this.currentIndex >= this.totalCarousel) {
+            this.currentIndex = this.$slots.default[0].key
+          }
+        }
+      }
+    },
+    destroyed() {
+      clearInterval(this.IntervalTimer)
+      this.IntervalTimer = null
     }
 }
 </script>
@@ -62,6 +100,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 .cg-carousel-content {
   width: 100%;

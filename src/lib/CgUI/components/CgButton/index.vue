@@ -12,7 +12,9 @@
         :style="{
           'cursor': disabled ? 'not-allowed' : 'pointer'
         }"
+        @click="handleClick"
       >
+      <CgIcon v-if="icon" :type="icon"/>
       <slot></slot>
   </button>
 </template>
@@ -36,7 +38,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    // Icon
+    icon: {
+      type: String
+    }
   },
+  methods: {
+    handleClick(e) {
+      this.$emit('click', e)
+    }
+  }
 };
 </script>
 

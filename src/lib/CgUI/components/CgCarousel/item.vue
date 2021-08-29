@@ -1,7 +1,9 @@
 <template>
-  <div class="cg-carousel-item-container" v-if="currentIndex == selfIndex">
+  <transition :name="transitionType">
+    <div class="cg-carousel-item-container" v-if="currentIndex === selfIndex">
       <slot></slot>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -10,7 +12,8 @@ export default {
     data() {
       return {
         selfIndex: '',
-        currentIndex: ''
+        currentIndex: '',
+        transitionType: ''
       }
     },
     created() {
@@ -20,6 +23,13 @@ export default {
       '$parent._data.currentIndex': {
         handler(newVal, oldVal) {
           this.currentIndex = this.$parent._data.currentIndex
+        },
+        immediate: true,
+        deep: true
+      },
+      '$parent.playType': {
+        handler(newVal, oldVal) {
+          this.transitionType = this.$parent.playType
         },
         immediate: true,
         deep: true
@@ -35,5 +45,40 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  opacity: 1;
+}
+/* carousel */
+.carousel-enter-active,
+.carousel-leave-active {
+  transition: all 0.3s linear;
+}
+.carousel-enter-active {
+  left: 100%;
+}
+.carousel-enter-to {
+  left: 0;
+}
+.carousel-leave-active {
+  left: 0
+}
+.carousel-leave-to {
+  left: -100%;
+}
+/* opacity */
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: all 0.5s ease-in;
+}
+.opacity-enter-active {
+  opacity: 0;
+}
+.opacity-enter-to {
+  opacity: 1;
+}
+.opacity-leave-active {
+  opacity: 1;
+}
+.opacity-leave-to {
+  opacity: 0;
 }
 </style>
