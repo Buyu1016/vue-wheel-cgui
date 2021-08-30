@@ -1,7 +1,30 @@
 <template>
-  <div class="cg-carousel-container">
+  <div class="cg-carousel-container" ref="cgCarousel">
       <div class="cg-carousel-content">
         <slot></slot>
+      </div>
+      <div class="cg-carousel-indexAll">
+        <span
+        v-for="item in $slots.default.length"
+        :key="item"
+        :style="{
+          opacity: item - 1 == currentIndex ? '1' : '0.5',
+          background: item - 1 == currentIndex ? indexColor : '#A1A1A1'
+        }"></span>
+      </div>
+      <div
+      class="cg-carousel-switch"
+      ref="cgCarouselSwitch"
+      :style="{
+        opacity: switchBtnShow === 'hover' ? '0' : '1'
+      }"
+      >
+        <span class="cg-carousel-switch-left-button" @click="switchCarousel('prev')">
+          <CgIcon type="&#xebd9;" :size="25"/>
+        </span>
+        <span class="cg-carousel-switch-right-button" @click="switchCarousel('next')">
+          <CgIcon type="&#xebd9;" :size="25"/>
+        </span>
       </div>
   </div>
 </template>
@@ -43,6 +66,11 @@ export default {
         type: String,
         default: ''
       },
+      // 当前轮播图选中状态索引的颜色
+      indexColor: {
+        type: String,
+        default: '#FFFFFF'
+      },
       // 是否显示左右切换按钮
       ifShowSwitchBtn: {
         type: Boolean,
@@ -80,6 +108,13 @@ export default {
       }
       this.totalCarousel = this.$slots.default.length
     },
+    mounted() {
+      // 移入才会进行左右按钮的显示
+      if (this.switchBtnShow === 'hover') {
+        this.$refs.cgCarousel.addEventListener('mouseover', this.switchBtn('enter'))
+        this.$refs.cgCarousel.addEventListener('mouseout', this.switchBtn('leave'))
+      }
+    },
     methods: {
       switchCarousel(dir) {
         if (dir === 'prev') {
@@ -96,11 +131,22 @@ export default {
           }
         }
 
+      },
+      switchBtn(type) {
+        if (type === 'enter') {
+          this.$refs.cgCarouselSwitch.style.opacity = '1'
+        } else if (type === "leave") {
+          this.$refs.cgCarouselSwitch.style.opacity = '0'
+        }
       }
     },
     destroyed() {
       clearInterval(this.IntervalTimer)
       this.IntervalTimer = null
+      if (this.switchBtnShow === 'hover') {
+        // this.$refs.cgCarousel.removeEventListener()
+        // this.$refs.cgCarousel.removeEventListener()
+      }
     }
 }
 </script>
@@ -115,5 +161,45 @@ export default {
 .cg-carousel-content {
   width: 100%;
   height: 100%;
+}
+.cg-carousel-indexAll {
+  padding: 3px 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  box-sizing: border-box;
+}
+.cg-carousel-indexAll span {
+  width: 10px;
+  height: 10px;
+  margin: 3px 5px;
+  opacity: 0.5;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+.cg-carousel-switch {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.cg-carousel-switch span {
+  display: inline-block;
+  cursor: pointer;
+}
+.cg-carousel-switch-left-button {
+  transform: rotate(45deg);
+  margin-left: 10px;
+  user-select: none;
+}
+.cg-carousel-switch-right-button {
+  transform: rotate(-135deg);
+  margin-right: 10px;
+  user-select: none;
 }
 </style>

@@ -3,7 +3,8 @@
     <CgCarousel
       :automatic="true"
       :initialIndexes="0"
-      playType="opacity"
+      playType="carousel"
+      switchBtnShow="hover"
       @getCurrentIndex="handleChange"
     >
       <CgCarouselItem v-for="(item,index) in url" :key="index">
@@ -27,7 +28,7 @@ export default {
   },
   methods: {
     handleChange(val) {
-      console.log(val)
+      // console.log(val)
     }
   }
 }

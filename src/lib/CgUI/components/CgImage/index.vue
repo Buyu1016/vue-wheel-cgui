@@ -14,7 +14,7 @@
             v-if="!url"
             class="cg-image-notImage"
         >
-            <CgIcon type="&#xeba2;" :size="100" color="#A1A1A1"/>
+            <CgIcon type="&#xeba2;" :size="100" color="#F5F7FA"/>
         </span>
     </div>
 </template>
