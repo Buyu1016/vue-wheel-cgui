@@ -111,8 +111,8 @@ export default {
     mounted() {
       // 移入才会进行左右按钮的显示
       if (this.switchBtnShow === 'hover') {
-        this.$refs.cgCarousel.addEventListener('mouseover', this.switchBtn('enter'))
-        this.$refs.cgCarousel.addEventListener('mouseout', this.switchBtn('leave'))
+        this.$refs.cgCarousel.addEventListener('mouseover', this.switchBtn)
+        this.$refs.cgCarousel.addEventListener('mouseout', this.switchBtn)
       }
     },
     methods: {
@@ -132,10 +132,10 @@ export default {
         }
 
       },
-      switchBtn(type) {
-        if (type === 'enter') {
+      switchBtn(e) {
+        if (e.type === 'mouseover') {
           this.$refs.cgCarouselSwitch.style.opacity = '1'
-        } else if (type === "leave") {
+        } else if (e.type === "mouseout") {
           this.$refs.cgCarouselSwitch.style.opacity = '0'
         }
       }
