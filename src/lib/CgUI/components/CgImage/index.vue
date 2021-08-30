@@ -14,7 +14,7 @@
             v-if="!url"
             class="cg-image-notImage"
         >
-            <CgIcon type="&#xeba2;" :size="100" color="#D1D1D1"/>
+            <CgIcon type="&#xeba2;" :size="100" color="#A1A1A1"/>
         </span>
     </div>
 </template>
@@ -54,6 +54,7 @@ export default {
 .cg-image-notImage {
     width: 100%;
     height: 100%;
+    background: #D1D1D1;
     display: flex;
     justify-content: center;
     align-items: center;
