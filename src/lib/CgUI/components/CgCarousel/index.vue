@@ -10,7 +10,9 @@
         :style="{
           opacity: item - 1 == currentIndex ? '1' : '0.5',
           background: item - 1 == currentIndex ? indexColor : '#A1A1A1'
-        }"></span>
+        }"
+        @click="handleIndexClick(item-1)"
+        ></span>
       </div>
       <div
       class="cg-carousel-switch"
@@ -19,10 +21,10 @@
         opacity: switchBtnShow === 'hover' ? '0' : '1'
       }"
       >
-        <span class="cg-carousel-switch-left-button" @click="switchCarousel('prev')">
+        <span class="cg-carousel-switch-left-button" @click="handleSwitchImage('prev')">
           <CgIcon type="&#xebd9;" :size="25"/>
         </span>
-        <span class="cg-carousel-switch-right-button" @click="switchCarousel('next')">
+        <span class="cg-carousel-switch-right-button" @click="handleSwitchImage('next')">
           <CgIcon type="&#xebd9;" :size="25"/>
         </span>
       </div>
@@ -130,13 +132,48 @@ export default {
             this.currentIndex = this.$slots.default[0].key
           }
         }
-
       },
       switchBtn(e) {
         if (e.type === 'mouseover') {
           this.$refs.cgCarouselSwitch.style.opacity = '1'
         } else if (e.type === "mouseout") {
           this.$refs.cgCarouselSwitch.style.opacity = '0'
+        }
+      },
+      handleSwitchImage(type) {
+        // 清除定时器
+        clearInterval(this.IntervalTimer)
+        this.IntervalTimer = null
+        this.switchCarousel(type)
+        // 重新开启定时器
+        if (this.automatic) {
+          this.IntervalTimer = setInterval(() => {
+            this.switchCarousel('next')
+          }, this.intervalTime)
+        }
+      },
+      handleIndexClick(index) {
+        // 清除定时器
+        clearInterval(this.IntervalTimer)
+        this.IntervalTimer = null
+        if (index > this.currentIndex) {
+          const diff = index-this.currentIndex
+          for(let i = 0; i < diff; i++) {
+            console.log('执行', i)
+            this.switchCarousel('next')
+          }
+        } else  if (index < this.currentIndex) {
+          const diff = this.totalCarousel - this.currentIndex + index
+          for(let i = 0; i < diff; i++) {
+            console.log('执行', i)
+            this.switchCarousel('next')
+          }
+        }
+        // 重新开启定时器
+        if (this.automatic) {
+          this.IntervalTimer = setInterval(() => {
+            this.switchCarousel('next')
+          }, this.intervalTime)
         }
       }
     },
@@ -187,6 +224,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  transition: opacity 0.2s ease-in;
 }
 .cg-carousel-switch span {
   display: inline-block;

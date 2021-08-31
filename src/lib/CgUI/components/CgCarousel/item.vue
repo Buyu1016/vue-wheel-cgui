@@ -22,6 +22,7 @@ export default {
     watch: {
       '$parent._data.currentIndex': {
         handler(newVal, oldVal) {
+          console.log(newVal)
           this.currentIndex = this.$parent._data.currentIndex
         },
         immediate: true,
