@@ -135,3 +135,24 @@
 | 事件名称 | 事件说明 | 回调参数 |
 | :-: | :-: | :-: |
 | getCurrentIndex | 获取当前轮播图索引值 | 当前轮播图索引值 |
+
+**示例图**
+![Carousel示例图](./image/carousel.jpeg)
+
+# Mask 遮罩层
+
+| 属性 | 说明 | 类型 | 可选值 | 默认值 |
+| :-: | :-: | :-: | :-: | :-: |
+| show | 是否显示遮罩层 | Boolean | true/false | false |
+
+# Dialog 弹框
+
+| 属性 | 说明 | 类型 | 可选值 | 默认值 |
+| :-: | :-: | :-: | :-: | :-: |
+| show | 是否显示弹框 | Boolean | true/false | false |
+| width | 弹框宽度 | Number | 无 | 600 |
+| blankClose | 点击空白处是否关闭 | Boolean | true/false | true |
+
+**示例图**
+
+![Dialog示例图](./image/Dialog.jpeg)

@@ -1,30 +1,15 @@
 <template>
   <div id="app">
-    <!-- <CgCarousel
+    <CgCarousel
       :automatic="true"
       :initialIndexes="0"
       playType="carousel"
-      switchBtnShow="hover"
       @getCurrentIndex="handleChange"
     >
       <CgCarouselItem v-for="(item,index) in url" :key="index">
         <CgImage style="width:500px;height:300px;" :url="item"/>
       </CgCarouselItem>
-    </CgCarousel> -->
-    <CgButton @click="show = true">打开</CgButton>
-    <CgDialog
-      :show.sync="show"
-    >
-      <template #header>
-        Header
-      </template>
-      <template>
-        Hello Dialog
-      </template>
-      <template #footer>
-        Footer
-      </template>
-    </CgDialog>
+    </CgCarousel>
   </div>
 </template>
 

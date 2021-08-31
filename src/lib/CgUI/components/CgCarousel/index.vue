@@ -81,8 +81,7 @@ export default {
       // 左右切换按钮显示方式
       // hover 移动到轮播图显示
       switchBtnShow: {
-        type: String,
-        default: 'hover'
+        type: String
       }
     },
     data() {
@@ -177,7 +176,7 @@ export default {
         }
       }
     },
-    destroyed() {
+    beforeDestroy() {
       clearInterval(this.IntervalTimer)
       this.IntervalTimer = null
       if (this.switchBtnShow === 'hover') {

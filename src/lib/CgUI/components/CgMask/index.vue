@@ -1,7 +1,5 @@
 <template>
-  <div class="cg-mask-container" v-if="show">
-      1
-  </div>
+  <div class="cg-mask-container" v-if="show" @click="handleClick"></div>
 </template>
 
 <script>
@@ -11,6 +9,11 @@ export default {
         show: {
             type: Boolean,
             require: true
+        }
+    },
+    methods: {
+        handleClick(e) {
+            this.$emit('click', e)
         }
     }
 }
