@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CgCarousel
+    <!-- <CgCarousel
       :automatic="true"
       :initialIndexes="0"
       playType="carousel"
@@ -10,7 +10,21 @@
       <CgCarouselItem v-for="(item,index) in url" :key="index">
         <CgImage style="width:500px;height:300px;" :url="item"/>
       </CgCarouselItem>
-    </CgCarousel>
+    </CgCarousel> -->
+    <CgButton @click="show = true">打开</CgButton>
+    <CgDialog
+      :show.sync="show"
+    >
+      <template #header>
+        Header
+      </template>
+      <template>
+        Hello Dialog
+      </template>
+      <template #footer>
+        Footer
+      </template>
+    </CgDialog>
   </div>
 </template>
 
@@ -23,7 +37,8 @@ export default {
         'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F12577968-f77d03da5d0e9cb2.jpg&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632406337&t=8875a4a50b966aa4c3e7e27d62b29878',
         'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fv1cdn.imspm.com%2Fe%2Fcb67673f01ec4c42ba06bbf66507b260.jpeg&refer=http%3A%2F%2Fv1cdn.imspm.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632406374&t=40b95ce27980ec3c72fb3b6184ef75e3',
         ''
-      ]
+      ],
+      show: false
     }
   },
   methods: {

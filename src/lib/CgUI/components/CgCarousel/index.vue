@@ -181,8 +181,8 @@ export default {
       clearInterval(this.IntervalTimer)
       this.IntervalTimer = null
       if (this.switchBtnShow === 'hover') {
-        // this.$refs.cgCarousel.removeEventListener()
-        // this.$refs.cgCarousel.removeEventListener()
+        this.$refs.cgCarousel.removeEventListener('mouseover', this.switchBtn)
+        this.$refs.cgCarousel.removeEventListener('mouseout', this.switchBtn)
       }
     }
 }
