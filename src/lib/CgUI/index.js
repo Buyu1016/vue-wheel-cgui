@@ -8,11 +8,12 @@ import CgImage from './components/CgImage'
 import CgCarousel from './components/CgCarousel'
 import CgCarouselItem from './components/CgCarousel/item.vue'
 import CgDialog from './components/CgDialog/index.vue'
-import CgMask from './components/CgMask/index.vue'
+import CgMask from './components/CgMask'
+import CgMagnifier from './components/CgMagnifier'
 
 const CgUI = {}
 
-const CgUIPond = [CgButton, CgIcon, CgPraise, CgSelect, CgInput, CgEmpty, CgCarousel, CgCarouselItem, CgImage, CgDialog, CgMask]
+const CgUIPond = [CgButton, CgIcon, CgPraise, CgSelect, CgInput, CgEmpty, CgCarousel, CgCarouselItem, CgImage, CgDialog, CgMask, CgMagnifier]
 
 // 全局注册主键的地方
 CgUI.install = function (vue) {

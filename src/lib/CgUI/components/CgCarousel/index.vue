@@ -110,6 +110,9 @@ export default {
       this.totalCarousel = this.$slots.default.length
     },
     mounted() {
+      // 鼠标移入停止轮播
+      this.$refs.cgCarousel.addEventListener('mouseover', this.stopCarousel)
+      this.$refs.cgCarousel.addEventListener('mouseout', this.stopCarousel)
       // 移入才会进行左右按钮的显示
       if (this.switchBtnShow === 'hover') {
         this.$refs.cgCarousel.addEventListener('mouseover', this.switchBtn)
@@ -139,6 +142,21 @@ export default {
           this.$refs.cgCarouselSwitch.style.opacity = '0'
         }
       },
+      // 停止轮播
+      stopCarousel(e) {
+        if (e.type === 'mouseover') {
+          // 清除定时器
+          clearInterval(this.IntervalTimer)
+          this.IntervalTimer = null
+        } else if (e.type === "mouseout") {
+          // 重新开启定时器
+          if (this.automatic) {
+            this.IntervalTimer = setInterval(() => {
+              this.switchCarousel('next')
+            }, this.intervalTime)
+          }
+        }
+      },
       handleSwitchImage(type) {
         // 清除定时器
         clearInterval(this.IntervalTimer)
@@ -152,33 +170,24 @@ export default {
         }
       },
       handleIndexClick(index) {
-        // 清除定时器
-        clearInterval(this.IntervalTimer)
-        this.IntervalTimer = null
         if (index > this.currentIndex) {
           const diff = index-this.currentIndex
           for(let i = 0; i < diff; i++) {
-            console.log('执行', i)
             this.switchCarousel('next')
           }
         } else  if (index < this.currentIndex) {
           const diff = this.totalCarousel - this.currentIndex + index
           for(let i = 0; i < diff; i++) {
-            console.log('执行', i)
             this.switchCarousel('next')
           }
-        }
-        // 重新开启定时器
-        if (this.automatic) {
-          this.IntervalTimer = setInterval(() => {
-            this.switchCarousel('next')
-          }, this.intervalTime)
         }
       }
     },
     beforeDestroy() {
       clearInterval(this.IntervalTimer)
       this.IntervalTimer = null
+      this.$refs.cgCarousel.removeEventListener('mouseover', this.stopCarousel)
+      this.$refs.cgCarousel.removeEventListener('mouseout', this.stopCarousel)
       if (this.switchBtnShow === 'hover') {
         this.$refs.cgCarousel.removeEventListener('mouseover', this.switchBtn)
         this.$refs.cgCarousel.removeEventListener('mouseout', this.switchBtn)

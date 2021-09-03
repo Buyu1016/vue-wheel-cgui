@@ -107,7 +107,7 @@
 | alt | img原生alt | String | 无 | '' |
 | width | 图片宽度 | String | 无 | 100% |
 | height | 图片高度 | String | 无 | 100% |
-| radius | 图片圆角 | String | 无 | 0 |
+| radius | 图片圆角 | Number | 无 | 0 |
 
 **示例图**
 
@@ -141,11 +141,15 @@
 
 # Mask 遮罩层
 
+**API**
+
 | 属性 | 说明 | 类型 | 可选值 | 默认值 |
 | :-: | :-: | :-: | :-: | :-: |
 | show | 是否显示遮罩层 | Boolean | true/false | false |
 
 # Dialog 弹框
+
+**API**
 
 | 属性 | 说明 | 类型 | 可选值 | 默认值 |
 | :-: | :-: | :-: | :-: | :-: |
@@ -156,3 +160,11 @@
 **示例图**
 
 ![Dialog示例图](./image/Dialog.jpeg)
+
+# Magnifier 放大镜
+
+**API**
+
+| 属性 | 说明 | 类型 | 可选值 | 默认值 |
+| :-: | :-: | :-: | :-: | :-: |
+|  |  |  |  |  |
