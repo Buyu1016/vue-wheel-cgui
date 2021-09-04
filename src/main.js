@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import CgUI from './lib/CgUI/index'
+import './lib/CgUI/styles/global.css'
 
 Vue.config.productionTip = false
 

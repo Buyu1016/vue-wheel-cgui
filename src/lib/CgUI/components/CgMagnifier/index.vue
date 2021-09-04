@@ -1,11 +1,32 @@
 <template>
-  <div class="cg-magnifier-container">
-      <CgImage
+  <div
+    class="cg-magnifier-container"
+    >
+    <CgImage
         :url="url"
+        :alt="alt"
         :width="width"
         :height="height"
         :radius="10"
         />
+    <div
+        class="cg-magnifier-image"
+            :style="{
+                width: magnifierRegion + 'px',
+                height: magnifierRegion + 'px',
+                display: 'inline-block'
+            }"
+        >
+        <CgImage
+        :url="url"
+        :alt="alt"
+        :width="width"
+        :height="height"
+        :style="{
+            transform: `scale(${ multiple })`
+        }"
+        />
+    </div>
   </div>
 </template>
 
@@ -16,6 +37,10 @@ export default {
         url: {
             type: String,
             required: true
+        },
+        alt: {
+            type: String,
+            default: ''
         },
         width: {
             type: String,
@@ -29,6 +54,11 @@ export default {
         magnifierRegion: {
             type: Number,
             default: 100
+        },
+        // 放大倍率
+        multiple: {
+            type: Number,
+            default: 1.5
         }
     }
 }
@@ -37,5 +67,17 @@ export default {
 <style scoped>
 .cg-magnifier-container {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.cg-magnifier-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px #AAA;
+    cursor: move;
+    overflow: hidden;
 }
 </style>

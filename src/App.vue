@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <span v-for="(item, index) in url" :key="index">
+    <div v-for="(item, index) in url" :key="index" class="magnifier-box">
       <CgMagnifier
         :url="item"
         width="500px"
         height="300px" 
         :magnifierRegion="150" 
       />
-    </span>
+    </div>
   </div>
 </template>
 
@@ -24,9 +24,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {}
-span {
+.magnifier-box {
   display: inline-block;
 }
 </style>
