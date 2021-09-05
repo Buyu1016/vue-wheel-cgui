@@ -1,5 +1,6 @@
 <template>
   <div
+    v-magnifier="true"
     class="cg-magnifier-container"
     >
     <CgImage
@@ -14,7 +15,7 @@
             :style="{
                 width: magnifierRegion + 'px',
                 height: magnifierRegion + 'px',
-                display: 'inline-block'
+                display: 'none'
             }"
         >
         <CgImage
@@ -31,6 +32,8 @@
 </template>
 
 <script>
+import '@/lib/CgUI/directives'
+
 export default {
     name: 'CgMagnifier',
     props: {
@@ -58,7 +61,7 @@ export default {
         // 放大倍率
         multiple: {
             type: Number,
-            default: 1.5
+            default: 1.2
         }
     }
 }
@@ -70,6 +73,7 @@ export default {
     width: 100%;
     height: 100%;
     position: relative;
+    /* overflow: hidden; */
 }
 .cg-magnifier-image {
     position: absolute;
