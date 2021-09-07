@@ -6,6 +6,7 @@
         width="500px"
         height="300px" 
         :magnifierRegion="150" 
+        :multiple="1.5"
       />
     </div>
   </div>

@@ -23,6 +23,7 @@
         :alt="alt"
         :width="width"
         :height="height"
+        class="cg-magnifier-scale-image"
         :style="{
             transform: `scale(${ multiple })`
         }"
@@ -83,5 +84,11 @@ export default {
     box-shadow: 0 0 0 1px #AAA;
     cursor: move;
     overflow: hidden;
+    box-shadow: 0 0 0 3px #A1A1A1;
+}
+.cg-magnifier-scale-image {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 </style>

@@ -167,4 +167,13 @@
 
 | 属性 | 说明 | 类型 | 可选值 | 默认值 |
 | :-: | :-: | :-: | :-: | :-: |
-|  |  |  |  |  |
+| url | img原生url | String | 无 | '' |
+| alt | img原生alt | String | 无 | '' |
+| width | 图片宽度 | String | 无 | 500px |
+| height | 图片高度 | String | 无 | 300px |
+| magnifierRegion | 放大镜区域大小 | Number | 无 | 100 |
+| multiple | 放大镜放大倍率 | Number | 无 | 1.2 |
+
+**示例图**
+
+![Magnifier示例图](./image/Magnifier.jpeg)
