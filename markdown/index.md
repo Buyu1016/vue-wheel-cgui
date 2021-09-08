@@ -137,7 +137,7 @@
 | getCurrentIndex | 获取当前轮播图索引值 | 当前轮播图索引值 |
 
 **示例图**
-![Carousel示例图](./image/carousel.jpeg)
+![Carousel示例图](./image/Carousel.jpeg)
 
 # Mask 遮罩层
 

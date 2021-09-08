@@ -1,7 +1,5 @@
 import Vue from 'vue'
 
-// TODO 此处还有一个bug为当鼠标移出内容区域时无法正常隐藏放大镜
-
 const magnifier = Vue.directive('magnifier', {
     bind(el) {
         const oImage = el.children[0]
