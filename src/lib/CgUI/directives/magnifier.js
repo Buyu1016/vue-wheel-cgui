@@ -2,7 +2,6 @@ import Vue from 'vue'
 
 const magnifier = Vue.directive('magnifier', {
     bind(el) {
-        const oImage = el.children[0]
         const oMag = el.children[1]
         const oMagImage = oMag.children[0]
         el.addEventListener('mouseenter', elMouseEnter, false)
